@@ -1,0 +1,5 @@
+C:\Visual Studio 2010\Projects\MAB\MAB\bin\Debug\MAB.dll
+C:\Visual Studio 2010\Projects\MAB\MAB\bin\Debug\MAB.pdb
+C:\Visual Studio 2010\Projects\MAB\MAB\obj\Debug\ResolveAssemblyReference.cache
+C:\Visual Studio 2010\Projects\MAB\MAB\obj\Debug\MAB.dll
+C:\Visual Studio 2010\Projects\MAB\MAB\obj\Debug\MAB.pdb

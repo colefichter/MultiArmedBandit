@@ -1,0 +1,7 @@
+C:\Visual Studio 2010\Projects\MAB\Simulator\bin\Debug\Simulator.exe
+C:\Visual Studio 2010\Projects\MAB\Simulator\bin\Debug\Simulator.pdb
+C:\Visual Studio 2010\Projects\MAB\Simulator\bin\Debug\MAB.dll
+C:\Visual Studio 2010\Projects\MAB\Simulator\bin\Debug\MAB.pdb
+C:\Visual Studio 2010\Projects\MAB\Simulator\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Visual Studio 2010\Projects\MAB\Simulator\obj\x86\Debug\Simulator.exe
+C:\Visual Studio 2010\Projects\MAB\Simulator\obj\x86\Debug\Simulator.pdb
