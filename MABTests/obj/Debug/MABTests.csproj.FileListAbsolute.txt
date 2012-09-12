@@ -1,8 +1,0 @@
-C:\Visual Studio 2010\Projects\MAB\MABTests\obj\Debug\ResolveAssemblyReference.cache
-C:\Visual Studio 2010\Projects\MAB\MABTests\bin\Debug\MABTests.dll
-C:\Visual Studio 2010\Projects\MAB\MABTests\bin\Debug\MABTests.pdb
-C:\Visual Studio 2010\Projects\MAB\MABTests\bin\Debug\MAB.dll
-C:\Visual Studio 2010\Projects\MAB\MABTests\bin\Debug\nunit.framework.dll
-C:\Visual Studio 2010\Projects\MAB\MABTests\bin\Debug\MAB.pdb
-C:\Visual Studio 2010\Projects\MAB\MABTests\obj\Debug\MABTests.dll
-C:\Visual Studio 2010\Projects\MAB\MABTests\obj\Debug\MABTests.pdb
