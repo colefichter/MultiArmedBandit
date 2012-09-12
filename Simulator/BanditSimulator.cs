@@ -41,7 +41,7 @@ namespace Simulator
         {
             SimulatorRepository repo = new SimulatorRepository();
             repo.AddAlternative(new ConstantRewardAlternative(0.5f)); //best
-            repo.AddAlternative(new ConstantRewardAlternative(0.35f)); //worst
+            repo.AddAlternative(new ConstantRewardAlternative(0.2f)); //worst
 
             return repo;
         }

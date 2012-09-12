@@ -13,7 +13,7 @@ namespace MAB
         /// <summary>
         /// The total number of trails played for all alternatives.
         /// </summary>
-        public int Plays
+        public int TotalTrials
         {
             get
             {
@@ -22,6 +22,9 @@ namespace MAB
             }
         }
 
+        /// <summary>
+        /// If the bandit is constructed with a collectDiagnostics = true parameter, then debugging information will be collected in this property.
+        /// </summary>
         public BanditDiagnostics Diagnostics
         {
             get
@@ -74,6 +77,11 @@ namespace MAB
             return selected;
         }
 
+        /// <summary>
+        /// Implementation of UCB1 algorithm to select an alternative during play.
+        /// </summary>
+        /// <param name="alternatives"></param>
+        /// <returns></returns>
         protected IAlternative ComputeSelection(IAlternative[] alternatives)
         {
             IAlternative selected = null;
@@ -86,11 +94,12 @@ namespace MAB
                     selected = a;
                 }
             }
-
+            //TODO: optimize the block ABOVE by checking if N > alternatives.length rather than searching the alternatives on every trial?
+            
             if (selected == null)
             {
                 //We know that each machine has been played at least once.
-                double logPlays = Math.Log(this.Plays);
+                double logPlays = Math.Log(this.TotalTrials);
 
                 double[] machineMeanUpperBounds = alternatives.Select<IAlternative, double>(x => x.Mean + Math.Sqrt(2 * logPlays / x.Trials)).ToArray();
 
