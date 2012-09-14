@@ -22,6 +22,9 @@ namespace MAB
             }
         }
 
+        /// <summary>
+        /// Boolean flag indicating wether or not this instance is collecting diagnostic information as it runs.
+        /// </summary>
         public bool CollectDiagnostics
         {
             get { return _collectDiagnostics; }
@@ -104,9 +107,9 @@ namespace MAB
             if (selected == null)
             {
                 //We know that each machine has been played at least once.
-                double logPlays = Math.Log(this.TotalTrials);
+                double logPlaysTimesTwo = 2 * Math.Log(this.TotalTrials);
 
-                double[] machineMeanUpperBounds = alternatives.Select<IAlternative, double>(x => x.Mean + Math.Sqrt(2 * logPlays / x.Trials)).ToArray();
+                double[] machineMeanUpperBounds = alternatives.Select<IAlternative, double>(x => x.Mean + Math.Sqrt(logPlaysTimesTwo / x.Trials)).ToArray();
 
                 int indexOfMax = (
                     from x in machineMeanUpperBounds
