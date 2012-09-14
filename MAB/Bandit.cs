@@ -22,6 +22,11 @@ namespace MAB
             }
         }
 
+        public bool CollectDiagnostics
+        {
+            get { return _collectDiagnostics; }
+        }
+
         /// <summary>
         /// If the bandit is constructed with a collectDiagnostics = true parameter, then debugging information will be collected in this property.
         /// </summary>
