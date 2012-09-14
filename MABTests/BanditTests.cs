@@ -49,5 +49,26 @@ namespace MABTests
             Bandit<object> b = new Bandit<object>(_emptyRepository, true);
             Assert.IsNotNull(b.Diagnostics);
         }
+
+        [Test]
+        public void CollectDiagnostics_DefaultConstructor_False()
+        {
+            Bandit<object> b = new Bandit<object>(_emptyRepository);
+            Assert.IsFalse(b.CollectDiagnostics);
+        }
+
+        [Test]
+        public void CollectDiagnostics_InitConstructor_False()
+        {
+            Bandit<object> b = new Bandit<object>(_emptyRepository, false);
+            Assert.IsFalse(b.CollectDiagnostics);
+        }
+
+        [Test]
+        public void CollectDiagnostics_InitConstructor_True()
+        {
+            Bandit<object> b = new Bandit<object>(_emptyRepository, true);
+            Assert.IsTrue(b.CollectDiagnostics);
+        }
     }
 }
