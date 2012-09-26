@@ -17,10 +17,10 @@ namespace Simulator
         {
             InitBandit();
 
-            IAlternative lastSelected = null;
+            ConstantRewardAlternative lastSelected = null;
             for (int i = 0; i < this._iterations; i++)
             {
-                IAlternative selected = this._bandit.Play();
+                ConstantRewardAlternative selected = this._bandit.Play();
                 if (selected != lastSelected || (i + 1) % 1000 == 0)
                 {
                     WL(i + 1, selected);
