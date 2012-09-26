@@ -7,7 +7,7 @@ using MAB;
 
 namespace MABTests
 {
-    class EmptyRepository : IBanditRepo<object>
+    class EmptyRepository : IBanditRepo<EmptyAlternative>
     {
         #region IBanditRepo<object> Members
 

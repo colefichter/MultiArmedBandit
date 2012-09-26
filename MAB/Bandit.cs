@@ -4,14 +4,18 @@ using System.Linq;
 
 namespace MAB
 {
-    public sealed class Bandit<T1>
+    /// <summary>
+    /// A generic UCB-1 bandit algorithm implementation.
+    /// </summary>
+    /// <typeparam name="T1"></typeparam>
+    public sealed class Bandit<T1> where T1 : IAlternative
     {
         protected bool _collectDiagnostics = false;
         protected IBanditRepo<T1> _repo = null;
         protected BanditDiagnostics _diagnostics = null;
 
         /// <summary>
-        /// The total number of trails played for all alternatives.
+        /// The total number of trials played for all alternatives.
         /// </summary>
         public int TotalTrials
         {
@@ -70,7 +74,7 @@ namespace MAB
         /// Returns a chosen alternative for use. Currently based on the UCB1 algorithm.
         /// </summary>
         /// <returns></returns>
-        public IAlternative Play()
+        public T1 Play()
         {
             IAlternative[] alternatives = _repo.Alternatives;
 
@@ -82,7 +86,7 @@ namespace MAB
             IAlternative selected = this.ComputeSelection(alternatives);
             selected.Play();
 
-            return selected;
+            return (T1) selected;
         }
 
         /// <summary>
