@@ -1,0 +1,34 @@
+﻿@using WidgetWorld.Models
+@{
+    ViewBag.Title = "Bandit Status";
+}
+
+<h2>Bandit Status</h2>
+@foreach (PurchaseButton pb in @ViewBag.Alternatives) {
+    <div style="float:left; margin-right: 20px;">
+        <table>
+            <caption>
+                <span style="color:@pb.Color;">@pb.Name</span>
+            </caption>
+            <tr>
+                <td>Trials (AKA plays)</td>
+                <td>@pb.Trials</td>
+            </tr>
+            <tr>
+                <td>Accumulated reward</td>
+                <td>@pb.Reward</td>
+            </tr>
+            <tr>
+                <td>Mean reward</td>
+                <td>@pb.Mean</td>
+            </tr>
+            <tr>
+                <td>TODO:</td>
+                <td>Confidence Interval!</td>
+            </tr>
+        </table>
+        <br />
+    </div>
+}
+<br clear="all" />
+
