@@ -10,6 +10,9 @@ namespace MAB
         public float LastBestMean { get; set; }
         public float LastWorstMean { get; set; }
 
+        public float LastBestUpperBound { get; set; }
+        public float LastWorstUpperBound { get; set; }
+
         public IAlternative LastBest { get; set; }
         public IAlternative LastWorst { get; set; }
     }
