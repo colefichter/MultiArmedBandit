@@ -1,0 +1,44 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Bandit Status";
+}
+<h2>
+    How does the UCB1 bandit algorithm work?</h2>
+<p>
+    When the bandit machine is played, the UCB1 algorithm uses the mean for each alternative
+    (or arm) to calculate a confidence interval centered on the mean reward for each
+    machine. Since each machine will likely have a different number of plays and a different
+    mean reward, their confidence intervals will usually be different. The machine whose
+    confidence interval has the highest upper bound is selected as the winner is used
+    during the current play.</p>
+<p>
+    As time goes by and the bandit is played, there are two forces acting in opposition
+    on the confidence intervals, which causes changes to which machine is currently
+    viewed as the best at any given time.
+</p>
+<p>
+    First, when an alternative is rewarded (this happens by calling the Score() method
+    after a conversion or purchase), its total reward is incremented, causing the Mean
+    reward to increase. This increase in the mean reward subsequently pushes up the
+    upper bound of the confidence interval, potentially making that alternative more
+    attractive.
+</p>
+<p>
+    The second force acting on the confidence intervals is the total number of plays
+    for the bandit overall. As the number of plays increases over time, all of the confidence
+    intervals gradually narrow to reflect a greater degree of certainty in the calculations.
+    This has the effect of gradually lowering the upper bound for all of the alternatives,
+    assuming that the mean rewards collected are held constant.
+</p>
+<p>
+    The continuous interplay of expansionary and deflationray activity on the upper
+    bounds causes the alternatives to jockey for position in terms of being the "best"
+    alternative to chose at any given time. This allows the algorithm to explore all
+    of the alternatives while maximizing the total reward collected over time.
+</p>
+<p>
+    As a result, the UCB1 algorithm is known as "adaptive" because it can adapt to changes
+    in the world as time proceeds. Traditional A/B testing, for example, is unable to
+    adapt in such a fashion; if the world changes five minutes after you pick your
+    "best" alternative, you are stuck with an underperforming choice and your total
+    reward collected will be far from optimal.</p>

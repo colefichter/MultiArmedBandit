@@ -10,12 +10,12 @@ namespace MAB
         /// <summary>
         /// The number of trials in which this alternative was selected for play.
         /// </summary>
-        public virtual int Trials { get; private set; }
+        public virtual int Trials { get; protected set; }
 
         /// <summary>
         /// The sum of the rewards earned by this alternative.
         /// </summary>
-        public virtual double Reward { get; private set; }
+        public virtual double Reward { get; protected set; }
 
         /// <summary>
         /// The mean of the reward among all trials.
@@ -38,7 +38,7 @@ namespace MAB
         /// </summary>
         public virtual void Score()
         {
-            this.Reward += 1;
+            this.Score(1.0);
         }
 
         /// <summary>

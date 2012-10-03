@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 
 using MAB;
@@ -16,7 +17,7 @@ namespace WidgetWorld.Controllers
             ViewBag.Message = "Welcome to Widget World!";
 
             //Ask our Bandit to select a button variant to display:
-            Bandit<PurchaseButton> bandit = new Bandit<PurchaseButton>(new WidgetRepo());
+            Bandit<PurchaseButton> bandit = (Bandit<PurchaseButton>)HttpContext.Cache.Get(@"bandit");
             PurchaseButton selectedButton = bandit.Play();
 
             ViewBag.ButtonColor = selectedButton.Color;
@@ -28,6 +29,9 @@ namespace WidgetWorld.Controllers
         public ActionResult Status()
         {
             ViewBag.Alternatives = (new WidgetRepo()).Alternatives;
+
+            Bandit<PurchaseButton> bandit = (Bandit<PurchaseButton>)HttpContext.Cache.Get(@"bandit");
+            ViewBag.BanditDiagnostics = bandit.Diagnostics;
 
             return View();
         }
@@ -52,6 +56,11 @@ namespace WidgetWorld.Controllers
             }
 
             return RedirectToAction(@"Index");
+        }
+
+        public ActionResult How()
+        {
+            return View();
         }
     }
 }

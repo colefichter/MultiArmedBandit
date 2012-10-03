@@ -1,34 +1,37 @@
 ﻿@{
     ViewBag.Title = "Welcome to Widget World";
 }
-
 <style>
-	a.purchaseButton 
-	{
-		height: 40px;
-		width: 300px;
-		margin: 5px;
-		vertical-align: middle;
-		text-align: center;
-		display: block;
-		padding-top: 20px;
-		text-decoration:none;
-		color: White;		
-		border-radius: 7px;
-	}	
-	a.purchaseButton:hover
-	{
-		color:#373737;
-	}
+    a.purchaseButton
+    {
+        height: 40px;
+        width: 300px;
+        margin: 5px;
+        vertical-align: middle;
+        text-align: center;
+        display: block;
+        padding-top: 20px;
+        text-decoration: none;
+        color: White;
+        border-radius: 7px;
+    }
+    a.purchaseButton:hover
+    {
+        color: #373737;
+    }
 </style>
-
 <h2>@ViewBag.Message</h2>
 <p>
     No matter what your needs, we can supply a widget to satisfy you!
 </p>
 <p>
-    The button variant seen below is selected by a Multi-armed Bandit algorithm (try refreshing the page a few times).
-    To score a conversion, click on the button below.
+    The button variant seen below is selected by a Multi-armed Bandit algorithm (try
+    refreshing the page a few times). To score a conversion, click on the button below.
+</p>
+<p>
+    Visit the <a href="/Home/Status">Bandit Status</a> page to view diagnostics of the
+    algorithm.
 </p>
 <a class="purchaseButton" href="/Home/buy?buttonName=@ViewBag.ButtonName" 
-    title="Buy some widgets!" style="background-color: @ViewBag.ButtonColor; ">Buy some widgets!</a>
+    title="Buy some widgets!" style="background-color: @ViewBag.ButtonColor; ">Buy some
+    widgets!</a>

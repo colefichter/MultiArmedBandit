@@ -134,8 +134,11 @@ namespace MAB
                     this._diagnostics.LastBest = alternatives[indexOfMax];
                     this._diagnostics.LastWorst = alternatives[indexOfMin];
 
-                    this._diagnostics.LastBestMean = (float)machineMeanUpperBounds[indexOfMax];
-                    this._diagnostics.LastWorstMean = (float)machineMeanUpperBounds[indexOfMin];
+                    this._diagnostics.LastBestMean = alternatives[indexOfMax].Mean;
+                    this._diagnostics.LastWorstMean = alternatives[indexOfMin].Mean;
+
+                    this._diagnostics.LastBestUpperBound = (float)machineMeanUpperBounds[indexOfMax];
+                    this._diagnostics.LastWorstUpperBound = (float)machineMeanUpperBounds[indexOfMin];
                 }
             }
 

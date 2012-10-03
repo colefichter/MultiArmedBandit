@@ -7,54 +7,37 @@ using MAB;
 
 namespace WidgetWorld.Models
 {
-    public class PurchaseButton : IAlternative
+    public class PurchaseButton : AbstractAlternative
     {
         public string Name { get; private set; }
+        public string Color { get; private set; }
 
         public PurchaseButton(string color, string buttonName)
         {
             this.Color = color;
             this.Name = buttonName;
         }
-
-        #region IAlternative Members
-
-        public int Trials { get; private set; }
-
-        public double Reward { get; private set; }
-
-        public float Mean
+        
+        public override float Mean
         {
             get
             {
-                if (Trials == 0)
-                {
-                    return 0f;
-                }
-                else
-                {
-                    return (float)Math.Round((float)Reward / (float)Trials, 3);
-                }
+                //if (Trials == 0)
+                //{
+                //    return 0f;
+                //}
+                //else
+                //{
+                //    return (float)Math.Round((float)Reward / (float)Trials, 3);
+                //}
+
+                return (float)Math.Round(base.Mean, 3);
             }
         }
 
-        public void Score()
-        {
-            this.Score(1.0);
-        }
-
-        public void Score(double increment)
+        public override void Score(double increment)
         {
             this.Reward += increment;
         }
-
-        public void Play()
-        {
-            this.Trials += 1;
-        }
-
-        #endregion
-
-        public string Color { get; private set; }
     }
 }

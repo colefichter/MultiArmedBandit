@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Caching;
 using System.Web.Mvc;
 using System.Web.Routing;
+using MAB;
+using WidgetWorld.Models;
 
 namespace WidgetWorld
 {
@@ -53,6 +55,10 @@ namespace WidgetWorld
             //Very naive repo implementation... just use the cache.
             HttpContext.Current.Cache.Remove(@"alternatives");
             HttpContext.Current.Cache.Add(@"alternatives", buttons, null, Cache.NoAbsoluteExpiration, new TimeSpan(1, 0, 0), CacheItemPriority.Normal, null);
+
+            //If you want to track diagnostic info across requests (like for the status page), keep this around, like in a singleton...
+            Bandit<PurchaseButton> bandit = new Bandit<PurchaseButton>(new WidgetRepo(), true);
+            HttpContext.Current.Cache.Add(@"bandit", bandit, null, Cache.NoAbsoluteExpiration, new TimeSpan(1, 0, 0), CacheItemPriority.Normal, null);
         }
     }
 }
