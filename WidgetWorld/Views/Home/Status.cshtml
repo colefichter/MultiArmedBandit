@@ -1,0 +1,67 @@
+﻿@using WidgetWorld.Models
+@{
+    ViewBag.Title = "Bandit Status";
+}
+<h2>
+    Bandit Status</h2>
+    
+<h3>Details of Alternatives</h3>
+@foreach (PurchaseButton pb in @ViewBag.Alternatives)
+{
+    <div style="float: left; margin-right: 20px;">
+        <table>
+            <caption>
+                <span style="color:@pb.Color;">@pb.Name</span>
+            </caption>
+            <tr>
+                <td>
+                    Trials (AKA plays)
+                </td>
+                <td>@pb.Trials
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Accumulated reward
+                </td>
+                <td>@pb.Reward
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Mean reward
+                </td>
+                <td>@pb.Mean
+                </td>
+            </tr>
+        </table>
+        <br />
+    </div>
+}
+<br clear="all" />
+<h3>Diagnostics From Last Play</h3>
+@if (@ViewBag.BanditDiagnostics != null && @ViewBag.BanditDiagnostics.LastBest != null)
+{
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Best alternative</td>
+            <td>Worst alternative</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@ViewBag.BanditDiagnostics.LastBest.Name</td>
+            <td>@ViewBag.BanditDiagnostics.LastWorst.Name</td>
+        </tr>
+        <tr>
+            <td>Mean</td>
+            <td>@ViewBag.BanditDiagnostics.LastBestMean</td>
+            <td>@ViewBag.BanditDiagnostics.LastWorstMean</td>
+        </tr>
+        <tr>
+            <td>Upper bound</td>
+            <td>@ViewBag.BanditDiagnostics.LastBestUpperBound</td>
+            <td>@ViewBag.BanditDiagnostics.LastWorstUpperBound</td>
+        </tr>
+    </table>
+}
